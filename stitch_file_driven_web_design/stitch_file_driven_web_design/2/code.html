@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>대시보드 - POSCO FUTURE M Quality Insight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#ffb779",
+                        "secondary": "#006688",
+                        "text-heading": "#172B4D",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fe",
+                        "on-secondary-fixed": "#001e2c",
+                        "border-neutral": "#C1C7D0",
+                        "surface-container-high": "#e6e8ed",
+                        "tertiary-container": "#864900",
+                        "secondary-container": "#43c5fd",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-tertiary": "#ffffff",
+                        "status-caution": "#FFAB00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#95ccff",
+                        "on-primary-fixed-variant": "#004a75",
+                        "surface-dim": "#d8dadf",
+                        "tertiary-fixed": "#ffdcc1",
+                        "inverse-surface": "#2e3134",
+                        "surface-container-highest": "#e1e2e7",
+                        "on-tertiary-container": "#ffc392",
+                        "background": "#f8f9fe",
+                        "surface-bright": "#f8f9fe",
+                        "on-background": "#191c1f",
+                        "outline-variant": "#c0c7d0",
+                        "on-error": "#ffffff",
+                        "status-normal": "#008751",
+                        "primary-fixed": "#cee5ff",
+                        "on-tertiary-fixed": "#2e1500",
+                        "on-secondary-fixed-variant": "#004d68",
+                        "on-secondary-container": "#004f6b",
+                        "on-tertiary-fixed-variant": "#6c3a00",
+                        "status-critical": "#DE350B",
+                        "on-primary-fixed": "#001d32",
+                        "secondary-fixed-dim": "#77d1ff",
+                        "primary-container": "#005d91",
+                        "background-subtle": "#F4F5F7",
+                        "inverse-primary": "#95ccff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#106397",
+                        "primary": "#00456d",
+                        "tertiary": "#643500",
+                        "on-surface": "#191c1f",
+                        "outline": "#717880",
+                        "secondary-fixed": "#c2e8ff",
+                        "surface-variant": "#e1e2e7",
+                        "surface-container-low": "#f2f3f8",
+                        "on-primary-container": "#a9d4ff",
+                        "on-surface-variant": "#41474f",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eceef3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "table-cell-padding": "12px",
+                        "margin-page": "24px",
+                        "card-padding": "16px",
+                        "gutter": "16px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["IBM Plex Sans", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"],
+                        "body-lg": ["IBM Plex Sans", "sans-serif"],
+                        "body-md": ["IBM Plex Sans", "sans-serif"],
+                        "headline-lg": ["IBM Plex Sans", "sans-serif"],
+                        "headline-md": ["IBM Plex Sans", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "data-mono": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-subtle text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface font-headline-md text-headline-md docked full-width top-0 border-b border-border-neutral flat no shadows flex justify-between items-center w-full px-margin-page py-4 max-w-full z-50 sticky">
+<div class="flex items-center gap-8">
+<div class="font-headline-lg text-headline-lg font-bold text-primary">
+                POSCO FUTURE M Quality Insight
+            </div>
+<div class="hidden md:flex gap-6 items-center pt-1">
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors" href="#">데이터 선택</a>
+<a class="text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors opacity-80 transition-all duration-200" href="#">대시보드</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors" href="#">원인 분석</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors" href="#">리포트</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-border-neutral overflow-hidden flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">person</span>
+</div>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low font-body-md text-body-md docked left-0 h-full w-64 border-r border-border-neutral flat no shadows flex flex-col p-4 gap-4 hidden md:flex shrink-0 overflow-y-auto">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center shrink-0 text-on-primary-container">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<div class="font-bold text-text-heading">필터 패널</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">분석 파라미터</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>제품 유형</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg scale-95 transition-transform hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span>불량 유형</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span>등급</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>기간</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-2 px-4 bg-primary text-on-primary rounded-DEFAULT hover:bg-on-primary-fixed-variant transition-colors font-bold text-center">
+                필터 적용
+            </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-page bg-background-subtle">
+<div class="max-w-7xl mx-auto space-y-gutter">
+<!-- Header -->
+<header class="mb-8">
+<h1 class="font-headline-lg text-headline-lg text-text-heading mb-2">종합 대시보드 (Dashboard)</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">현재 데이터의 불량 현황과 주요 위험 신호를 확인합니다.</p>
+</header>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-gutter">
+<!-- Total LOT -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2">전체 LOT</div>
+<div class="font-headline-lg text-headline-lg text-text-heading mb-1">25</div>
+<div class="font-data-mono text-data-mono text-status-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +2.4%
+                        </div>
+</div>
+<!-- Avg Defect Rate -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2">평균 불량률</div>
+<div class="font-headline-lg text-headline-lg text-text-heading mb-1">3.5<span class="text-body-lg">%</span></div>
+<div class="font-data-mono text-data-mono text-status-caution flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span> Limit nearing
+                        </div>
+</div>
+<!-- Total Defect -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2">총 불량 수량</div>
+<div class="font-headline-lg text-headline-lg text-text-heading mb-1">420</div>
+<div class="font-data-mono text-data-mono text-status-normal flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span> -12pcs
+                        </div>
+</div>
+<!-- Serious LOT -->
+<div class="bg-surface border-l-4 border-l-status-critical border-y border-r border-border-neutral rounded-r-lg rounded-l-sm p-card-padding hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 80px;">error</span>
+</div>
+<div class="text-status-critical font-label-caps text-label-caps mb-2 font-bold">심각 LOT</div>
+<div class="font-headline-lg text-headline-lg text-status-critical mb-1">3</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant flex items-center gap-1">
+                            즉시 조치 필요
+                        </div>
+</div>
+<!-- Most Frequent Defect -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="text-on-surface-variant font-label-caps text-label-caps mb-2">최다 불량 유형</div>
+<div class="font-headline-md text-headline-md text-text-heading mb-1 leading-tight mt-2">표면<br/>불량</div>
+<div class="font-data-mono text-data-mono text-secondary flex items-center gap-1 mt-3">
+                            전체의 48%
+                        </div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Trend Line Chart -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding flex flex-col h-80">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-text-heading">불량률 추이</h2>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="flex-1 w-full bg-surface-container-low rounded border border-border-neutral relative flex items-end px-4 pb-4 pt-8 gap-2">
+<!-- CSS simulated chart -->
+<div class="flex-1 h-full flex flex-col justify-end relative">
+<div class="absolute inset-0 border-b border-border-neutral flex flex-col justify-between pb-[1px]">
+<div class="w-full border-t border-dashed border-border-neutral h-0"></div>
+<div class="w-full border-t border-dashed border-border-neutral h-0"></div>
+<div class="w-full border-t border-dashed border-border-neutral h-0"></div>
+</div>
+<div class="relative w-full h-[60%] bg-gradient-to-t from-secondary/20 to-transparent rounded-t" style="clip-path: polygon(0 100%, 0 60%, 20% 70%, 40% 40%, 60% 80%, 80% 30%, 100% 50%, 100% 100%);">
+<svg class="w-full h-full absolute inset-0 text-secondary" preserveaspectratio="none" viewbox="0 0 100 100">
+<polyline fill="none" points="0,60 20,70 40,40 60,80 80,30 100,50" stroke="currentColor" stroke-width="2"></polyline>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Pareto Chart -->
+<div class="bg-surface border border-border-neutral rounded-lg p-card-padding flex flex-col h-80">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-text-heading">불량 유형 파레토</h2>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="flex-1 w-full flex items-end gap-2 px-2 pb-6 pt-4 relative border-b border-l border-border-neutral">
+<!-- Secondary axis line -->
+<svg class="absolute inset-0 w-full h-full text-status-caution pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<polyline fill="none" points="10,20 30,35 50,60 70,80 90,95" stroke="currentColor" stroke-width="2"></polyline>
+<circle cx="10" cy="20" fill="currentColor" r="1.5"></circle>
+<circle cx="30" cy="35" fill="currentColor" r="1.5"></circle>
+<circle cx="50" cy="60" fill="currentColor" r="1.5"></circle>
+</svg>
+<!-- Bars -->
+<div class="flex-1 bg-primary h-[80%] rounded-t hover:bg-primary-container transition-colors relative group">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-caps text-on-surface-variant font-label-caps whitespace-nowrap">표면</span>
+</div>
+<div class="flex-1 bg-primary h-[50%] rounded-t hover:bg-primary-container transition-colors relative group">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-caps text-on-surface-variant font-label-caps whitespace-nowrap">형상</span>
+</div>
+<div class="flex-1 bg-primary h-[30%] rounded-t hover:bg-primary-container transition-colors relative group">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-caps text-on-surface-variant font-label-caps whitespace-nowrap">색상</span>
+</div>
+<div class="flex-1 bg-primary h-[15%] rounded-t hover:bg-primary-container transition-colors relative group">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-caps text-on-surface-variant font-label-caps whitespace-nowrap">크기</span>
+</div>
+<div class="flex-1 bg-primary h-[5%] rounded-t hover:bg-primary-container transition-colors relative group">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-label-caps text-on-surface-variant font-label-caps whitespace-nowrap">기타</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Alert Section -->
+<div class="bg-surface border border-border-neutral rounded-lg overflow-hidden flex flex-col md:flex-row">
+<div class="bg-error-container text-on-error-container p-6 md:w-64 shrink-0 flex flex-col justify-center border-b md:border-b-0 md:border-r border-border-neutral">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-headline-md text-headline-md">알림</span>
+</div>
+<p class="font-body-md text-body-md opacity-90">치명적인 품질 이탈에 대한 주의가 필요합니다.</p>
+</div>
+<div class="flex-1 divide-y divide-border-neutral">
+<!-- Alert Item 1 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-4">
+<div class="w-2 h-2 mt-2 rounded-full bg-status-critical shrink-0"></div>
+<div>
+<div class="font-bold text-text-heading mb-1">고위험 LOT (3건)</div>
+<div class="font-body-md text-body-md text-on-surface-variant">최근 배치 처리에서 치명적인 파라미터 이탈이 감지되었습니다.</div>
+</div>
+</div>
+<button class="ml-4 shrink-0 px-4 py-2 bg-surface text-primary border border-primary rounded-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors font-body-md font-bold flex items-center gap-2">
+                                상세 분석
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Alert Item 2 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-4">
+<div class="w-2 h-2 mt-2 rounded-full bg-status-caution shrink-0"></div>
+<div>
+<div class="font-bold text-text-heading mb-1">반복 패턴 (2건)</div>
+<div class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="border border-dashed border-status-caution px-1 py-0.5 rounded text-[10px] text-status-caution flex items-center gap-1 font-label-caps uppercase"><span class="material-symbols-outlined text-[10px]">smart_toy</span> ⚠ 추정됨</span>
+                                        AI 시스템이 B 라인에서 주기적인 불량 발생을 감지했습니다.
+                                    </div>
+</div>
+</div>
+<button class="ml-4 shrink-0 px-4 py-2 bg-surface text-primary border border-primary rounded-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors font-body-md font-bold flex items-center gap-2">
+                                상세 분석
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Alert Item 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-4">
+<div class="w-2 h-2 mt-2 rounded-full bg-status-caution shrink-0"></div>
+<div>
+<div class="font-bold text-text-heading mb-1">공정 이탈 (소결 온도)</div>
+<div class="font-body-md text-body-md text-on-surface-variant">정상 작동 범위를 벗어난 온도 변동이 관찰되었습니다.</div>
+</div>
+</div>
+<button class="ml-4 shrink-0 px-4 py-2 bg-surface text-primary border border-primary rounded-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors font-body-md font-bold flex items-center gap-2">
+                                상세 분석
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

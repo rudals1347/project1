@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>POSCO FUTURE M Quality Insight - 원인 분석</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#ffb779",
+                      "secondary": "#006688",
+                      "text-heading": "#172B4D",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "surface": "#f8f9fe",
+                      "on-secondary-fixed": "#001e2c",
+                      "border-neutral": "#C1C7D0",
+                      "surface-container-high": "#e6e8ed",
+                      "tertiary-container": "#864900",
+                      "secondary-container": "#43c5fd",
+                      "inverse-on-surface": "#eff1f5",
+                      "on-tertiary": "#ffffff",
+                      "status-caution": "#FFAB00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#95ccff",
+                      "on-primary-fixed-variant": "#004a75",
+                      "surface-dim": "#d8dadf",
+                      "tertiary-fixed": "#ffdcc1",
+                      "inverse-surface": "#2e3134",
+                      "surface-container-highest": "#e1e2e7",
+                      "on-tertiary-container": "#ffc392",
+                      "background": "#f8f9fe",
+                      "surface-bright": "#f8f9fe",
+                      "on-background": "#191c1f",
+                      "outline-variant": "#c0c7d0",
+                      "on-error": "#ffffff",
+                      "status-normal": "#008751",
+                      "primary-fixed": "#cee5ff",
+                      "on-tertiary-fixed": "#2e1500",
+                      "on-secondary-fixed-variant": "#004d68",
+                      "on-secondary-container": "#004f6b",
+                      "on-tertiary-fixed-variant": "#6c3a00",
+                      "status-critical": "#DE350B",
+                      "on-primary-fixed": "#001d32",
+                      "secondary-fixed-dim": "#77d1ff",
+                      "primary-container": "#005d91",
+                      "background-subtle": "#F4F5F7",
+                      "inverse-primary": "#95ccff",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#106397",
+                      "primary": "#00456d",
+                      "tertiary": "#643500",
+                      "on-surface": "#191c1f",
+                      "outline": "#717880",
+                      "secondary-fixed": "#c2e8ff",
+                      "surface-variant": "#e1e2e7",
+                      "surface-container-low": "#f2f3f8",
+                      "on-primary-container": "#a9d4ff",
+                      "on-surface-variant": "#41474f",
+                      "error": "#ba1a1a",
+                      "surface-container": "#eceef3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "table-cell-padding": "12px",
+                      "margin-page": "24px",
+                      "card-padding": "16px",
+                      "gutter": "16px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "IBM Plex Sans"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "IBM Plex Sans"
+                      ],
+                      "body-md": [
+                              "IBM Plex Sans"
+                      ],
+                      "headline-lg": [
+                              "IBM Plex Sans"
+                      ],
+                      "headline-md": [
+                              "IBM Plex Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'IBM Plex Sans', sans-serif; background-color: #F4F5F7; }
+        .data-mono { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-filled { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-background-subtle text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-border-neutral docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-page py-4 max-w-full">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">POSCO FUTURE M Quality Insight</h1>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant pb-1 font-headline-md text-headline-md hover:text-primary transition-colors" href="#">데이터 선택</a>
+<a class="text-on-surface-variant pb-1 font-headline-md text-headline-md hover:text-primary transition-colors" href="#">대시보드</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-headline-md text-headline-md hover:text-primary transition-colors opacity-80 transition-all duration-200" href="#">원인 분석</a>
+<a class="text-on-surface-variant pb-1 font-headline-md text-headline-md hover:text-primary transition-colors" href="#">보고서</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:bg-surface-container-high p-2 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:bg-surface-container-high p-2 rounded-full transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-border-neutral object-cover" data-alt="A small, professional portrait of an industrial quality control engineer, wearing a white hard hat and safety glasses, against a clean, bright factory background. High-key lighting, modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApDFsGpdkerqB-_eg8yqP9qCh7DqmZOtStsdA7haID6cxRzEMm-f_sy_SLuodzj7Orl1Rep3vt4JPSLzUx0mzrL_mftmqudDlbgPOLNh7cVdovOHnq3ZO7myM576cL4Yh7iRtp7mymql1I291F64WAogn4Xo3SvWnnDl2w81tfiSI_vlKSbdLoGFMpEX9EuUHHBJDqyQErCBF-Hj-3wFG8Jp6IOnWGS9IUWGz9heSUo6nwgULXMbQELg"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden h-[calc(100vh-73px)]">
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-page flex flex-col gap-gutter">
+<!-- Page Header & Steps -->
+<div class="flex justify-between items-end mb-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-1">원인 및 상관관계 분석 (원인 분석)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">데이터와 4M 기준표를 바탕으로 불량 원인을 분석합니다.</p>
+</div>
+<!-- Stepper -->
+<div class="flex items-center gap-2 font-label-caps text-label-caps">
+<div class="flex items-center gap-1 text-status-normal"><span class="material-symbols-outlined text-[16px] icon-filled">check_circle</span> 데이터 선택</div>
+<div class="w-8 h-px bg-border-neutral"></div>
+<div class="flex items-center gap-1 text-status-normal"><span class="material-symbols-outlined text-[16px] icon-filled">check_circle</span> 대시보드</div>
+<div class="w-8 h-px bg-border-neutral"></div>
+<div class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined text-[16px]">radio_button_checked</span> 원인 분석</div>
+<div class="w-8 h-px bg-border-neutral"></div>
+<div class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span> 보고서</div>
+</div>
+</div>
+<!-- Selected LOT Info Banner -->
+<div class="bg-surface border border-border-neutral p-card-padding flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-1 h-12 bg-status-critical rounded-full"></div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">선택된 LOT</div>
+<div class="font-headline-md text-headline-md text-text-heading flex items-center gap-2">
+                            LOT-001 <span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-sm font-bold">표면 결함</span> <span class="font-data-mono text-status-critical">8.4%</span>
+</div>
+</div>
+</div>
+<button class="bg-surface text-primary border border-primary px-4 py-2 font-body-md text-body-md rounded hover:bg-primary-fixed-dim transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span> 이력 보기
+                </button>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter h-full">
+<!-- Left Column: Tables & Correlation -->
+<div class="col-span-12 xl:col-span-7 flex flex-col gap-gutter">
+<!-- Process Condition Comparison -->
+<div class="bg-surface border border-border-neutral flex flex-col h-full shadow-sm">
+<div class="p-card-padding border-b border-border-neutral bg-surface-container-low flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-text-heading flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">tune</span> 공정 조건 비교
+                            </h3>
+</div>
+<div class="p-card-padding overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-border-neutral font-label-caps text-label-caps text-on-surface-variant">
+<th class="p-table-cell-padding font-bold uppercase">항목</th>
+<th class="p-table-cell-padding font-bold uppercase">기준값</th>
+<th class="p-table-cell-padding font-bold uppercase">현재값 (LOT-001)</th>
+<th class="p-table-cell-padding font-bold uppercase">상태</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface">
+<tr class="border-b border-border-neutral hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding">소성 온도</td>
+<td class="p-table-cell-padding text-on-surface-variant">920°C</td>
+<td class="p-table-cell-padding font-bold text-status-critical">945°C</td>
+<td class="p-table-cell-padding"><span class="text-status-critical flex items-center gap-1"><span class="material-symbols-outlined text-[16px] icon-filled">error</span> 범위 이탈</span></td>
+</tr>
+<tr class="border-b border-border-neutral hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding">시간</td>
+<td class="p-table-cell-padding text-on-surface-variant">120 min</td>
+<td class="p-table-cell-padding font-bold text-status-caution">125 min</td>
+<td class="p-table-cell-padding"><span class="text-status-caution flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">warning</span> 주의</span></td>
+</tr>
+<tr class="border-b border-border-neutral hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding">속도</td>
+<td class="p-table-cell-padding text-on-surface-variant">5 m/s</td>
+<td class="p-table-cell-padding">5.1 m/s</td>
+<td class="p-table-cell-padding"><span class="text-status-normal flex items-center gap-1"><span class="material-symbols-outlined text-[16px] icon-filled">check_circle</span> 정상</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-table-cell-padding">압력</td>
+<td class="p-table-cell-padding text-on-surface-variant">2.5 atm</td>
+<td class="p-table-cell-padding">2.4 atm</td>
+<td class="p-table-cell-padding"><span class="text-status-normal flex items-center gap-1"><span class="material-symbols-outlined text-[16px] icon-filled">check_circle</span> 정상</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Correlation Analysis -->
+<div class="bg-surface border border-border-neutral flex flex-col flex-1 shadow-sm">
+<div class="p-card-padding border-b border-border-neutral bg-surface-container-low flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-text-heading flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">scatter_plot</span> 상관관계 분석
+                            </h3>
+<div class="font-label-caps text-label-caps text-on-surface-variant">소성 온도 대비 불량률</div>
+</div>
+<div class="p-card-padding flex-1 flex flex-col">
+<!-- Faux Scatter Plot Area -->
+<div class="flex-1 bg-background-subtle border border-border-neutral rounded flex items-center justify-center relative min-h-[250px] mb-4">
+<div class="absolute inset-0 p-4 flex flex-col justify-between text-xs text-on-surface-variant font-data-mono">
+<div class="flex justify-between w-full border-b border-dashed border-border-neutral h-full items-start"><span class="opacity-50">10%</span></div>
+<div class="flex justify-between w-full border-b border-dashed border-border-neutral h-full items-start"><span class="opacity-50">5%</span></div>
+<div class="flex justify-between w-full border-b border-dashed border-border-neutral h-full items-start"><span class="opacity-50">0%</span></div>
+<div class="flex justify-between w-full pt-1 px-8"><span class="opacity-50">900°C</span><span class="opacity-50">925°C</span><span class="opacity-50">950°C</span></div>
+</div>
+<!-- Data points -->
+<div class="absolute w-2 h-2 bg-status-normal rounded-full left-[20%] top-[80%]"></div>
+<div class="absolute w-2 h-2 bg-status-normal rounded-full left-[30%] top-[75%]"></div>
+<div class="absolute w-2 h-2 bg-status-normal rounded-full left-[40%] top-[70%]"></div>
+<div class="absolute w-2 h-2 bg-status-caution rounded-full left-[55%] top-[60%]"></div>
+<div class="absolute w-2 h-2 bg-status-caution rounded-full left-[60%] top-[50%]"></div>
+<!-- Target LOT -->
+<div class="absolute w-3 h-3 bg-status-critical rounded-full left-[85%] top-[15%] shadow-[0_0_0_4px_rgba(222,53,11,0.2)]"></div>
+<div class="absolute w-2 h-2 bg-status-critical rounded-full left-[90%] top-[20%]"></div>
+<!-- Trend Line -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<line stroke="#006688" stroke-dasharray="2,2" stroke-width="0.5" x1="10" x2="95" y1="90" y2="10"></line>
+</svg>
+</div>
+<!-- Coefficient Table -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 border border-border-neutral flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">피어슨 계수 (r)</span>
+<span class="font-data-mono text-data-mono font-bold text-primary">0.82</span>
+</div>
+<div class="bg-surface-container-low p-3 border border-border-neutral flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">결정계수 (R²)</span>
+<span class="font-data-mono text-data-mono font-bold text-primary">0.67</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: 4M Analysis (Bento/Card Style) -->
+<div class="col-span-12 xl:col-span-5 flex flex-col gap-gutter">
+<div class="bg-surface border border-border-neutral flex flex-col h-full shadow-sm">
+<div class="p-card-padding border-b border-border-neutral bg-surface-container-low flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-text-heading flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">account_tree</span> 4M 원인 후보
+                            </h3>
+<!-- AI Badge -->
+<div class="border border-dashed border-status-caution bg-[#fffdf0] px-2 py-1 rounded text-xs font-bold text-status-caution flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span> AI 추정됨
+                             </div>
+</div>
+<div class="p-card-padding flex flex-col gap-4 overflow-y-auto">
+<!-- Candidate 1: Machine -->
+<div class="border border-border-neutral rounded p-4 relative overflow-hidden group hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow bg-surface">
+<div class="absolute top-0 left-0 w-1 h-full bg-status-critical"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="bg-surface-container-high p-1.5 rounded"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">precision_manufacturing</span></div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">설비 (Machine)</div>
+<div class="font-body-md text-body-md font-bold text-text-heading">소성로 온도 균일성</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-caps text-label-caps text-on-surface-variant">점수</div>
+<div class="font-headline-md text-headline-md font-bold text-status-critical">87</div>
+</div>
+</div>
+<div class="pl-2 mt-3 bg-surface-container-low p-2 border border-border-neutral text-sm font-data-mono flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">policy</span>
+<span>근거: 결함이 발생한 <strong class="text-text-heading">5/7 LOT가</strong> Zone 3에서 <strong class="text-status-critical">940°C</strong> 이상의 온도를 경험했습니다.</span>
+</div>
+<div class="pl-2 mt-3 flex justify-end">
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">로그 조사 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- Candidate 2: Method -->
+<div class="border border-border-neutral rounded p-4 relative overflow-hidden group hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow bg-surface">
+<div class="absolute top-0 left-0 w-1 h-full bg-status-caution"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="bg-surface-container-high p-1.5 rounded"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">architecture</span></div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">방법 (Method)</div>
+<div class="font-body-md text-body-md font-bold text-text-heading">소성 프로파일 관리</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-caps text-label-caps text-on-surface-variant">우선순위</div>
+<div class="font-body-md text-body-md font-bold text-status-caution">High</div>
+</div>
+</div>
+<div class="pl-2 mt-2 text-sm text-on-surface-variant">
+                                    최근 온도 상승 프로파일의 변화가 표면 산화 증가와 상관관계가 있습니다.
+                                </div>
+</div>
+<!-- Candidate 3: Man -->
+<div class="border border-border-neutral rounded p-4 relative overflow-hidden group hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)] transition-shadow bg-surface opacity-80">
+<div class="absolute top-0 left-0 w-1 h-full bg-border-neutral"></div>
+<div class="flex justify-between items-start mb-2 pl-2">
+<div class="flex items-center gap-2">
+<div class="bg-surface-container-high p-1.5 rounded"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">engineering</span></div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">작업자 (Man)</div>
+<div class="font-body-md text-body-md font-bold text-text-heading">표준 작업 절차(SOP) 준수 (냉각 단계)</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-caps text-label-caps text-on-surface-variant">우선순위</div>
+<div class="font-body-md text-body-md font-bold text-on-surface-variant">Med</div>
+</div>
+</div>
+<div class="pl-2 mt-2 text-sm text-on-surface-variant">
+                                    작업 일지에서 수동 냉각 도어 조작 타이밍의 미세한 편차가 확인되었습니다.
+                                </div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="p-card-padding border-t border-border-neutral bg-surface flex justify-end gap-3 mt-auto">
+<button class="bg-surface text-primary border border-primary px-6 py-2 font-body-md text-body-md rounded font-bold hover:bg-primary-fixed-dim transition-colors">
+                                데이터 내보내기
+                            </button>
+<button class="bg-primary text-on-primary border border-primary px-6 py-2 font-body-md text-body-md rounded font-bold hover:bg-primary-container transition-colors flex items-center gap-2">
+                                최종 보고서 생성 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

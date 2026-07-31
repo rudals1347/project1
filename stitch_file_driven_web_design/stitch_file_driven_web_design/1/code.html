@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>POSCO FUTURE M Quality Insight - 데이터 선택</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: IBM Plex Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS & Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#ffb779", "secondary": "#006688", "text-heading": "#172B4D", "error-container": "#ffdad6", "on-error-container": "#93000a", "surface": "#f8f9fe", "on-secondary-fixed": "#001e2c", "border-neutral": "#C1C7D0", "surface-container-high": "#e6e8ed", "tertiary-container": "#864900", "secondary-container": "#43c5fd", "inverse-on-surface": "#eff1f5", "on-tertiary": "#ffffff", "status-caution": "#FFAB00", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "primary-fixed-dim": "#95ccff", "on-primary-fixed-variant": "#004a75", "surface-dim": "#d8dadf", "tertiary-fixed": "#ffdcc1", "inverse-surface": "#2e3134", "surface-container-highest": "#e1e2e7", "on-tertiary-container": "#ffc392", "background": "#f8f9fe", "surface-bright": "#f8f9fe", "on-background": "#191c1f", "outline-variant": "#c0c7d0", "on-error": "#ffffff", "status-normal": "#008751", "primary-fixed": "#cee5ff", "on-tertiary-fixed": "#2e1500", "on-secondary-fixed-variant": "#004d68", "on-secondary-container": "#004f6b", "on-tertiary-fixed-variant": "#6c3a00", "status-critical": "#DE350B", "on-primary-fixed": "#001d32", "secondary-fixed-dim": "#77d1ff", "primary-container": "#005d91", "background-subtle": "#F4F5F7", "inverse-primary": "#95ccff", "on-secondary": "#ffffff", "surface-tint": "#106397", "primary": "#00456d", "tertiary": "#643500", "on-surface": "#191c1f", "outline": "#717880", "secondary-fixed": "#c2e8ff", "surface-variant": "#e1e2e7", "surface-container-low": "#f2f3f8", "on-primary-container": "#a9d4ff", "on-surface-variant": "#41474f", "error": "#ba1a1a", "surface-container": "#eceef3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"
+                    },
+                    spacing: {
+                        "table-cell-padding": "12px", "margin-page": "24px", "card-padding": "16px", "gutter": "16px", "unit": "4px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["IBM Plex Sans"], "data-mono": ["JetBrains Mono"], "body-lg": ["IBM Plex Sans"], "body-md": ["IBM Plex Sans"], "headline-lg": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"]
+                    },
+                    fontSize: {
+                        "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "data-mono": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for data density areas */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #C1C7D0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #717880; }
+    </style>
+</head>
+<body class="bg-background-subtle text-on-surface min-h-screen overflow-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component JSON Applied) -->
+<nav class="bg-surface text-primary font-headline-md text-headline-md border-b border-border-neutral flex justify-between items-center w-full px-margin-page py-4 max-w-full fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">POSCO FUTURE M Quality Insight</h1>
+<div class="hidden md:flex gap-6 mt-1">
+<!-- Data Selection: ACTIVE STATE -->
+<a class="text-primary border-b-2 border-primary pb-1 opacity-80 transition-all duration-200 font-body-md text-body-md font-semibold" href="#">데이터 선택</a>
+<!-- Inactive states -->
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-body-md text-body-md" href="#">대시보드</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-body-md text-body-md" href="#">원인 분석</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-body-md text-body-md" href="#">보고서</a>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-border-neutral">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate engineer in a well-lit, modern industrial office setting, wearing a pristine white hardhat and safety glasses, bright modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq3LF5-EvFFnKdeHVZahSPj2h2pGS-AzI1nrtHqBLXLz4wLfuuiDCAJJaDsI5OyMSRUNyikeMbryxYacXYP1FISwkJMMumGOzjc9ciALmLOGEk5Uj1bhzK9aVLT-1Cd2x6eOCGh9nqUlNLO32nDe2-1sJtCSSJvDEN447vrYE8zVWVYvDT8nyf403O-1sqgSYZSPLCEPSXi5j_GHRB-UYt_RjZOGIe7i4Z7kzM0u5uYdZNOYx3wFevLA"/>
+</div>
+</div>
+</nav>
+<div class="flex h-screen pt-[73px]">
+<!-- SideNavBar (Shared Component JSON Applied - Used here as a Filter Panel for Data Selection) -->
+<aside class="bg-surface-container-low text-primary font-body-md text-body-md border-r border-border-neutral flex flex-col h-full w-64 p-4 gap-4 flex-shrink-0 z-40 overflow-y-auto">
+<div class="mb-4">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">필터 패널</h2>
+<p class="font-body-md text-body-md text-text-heading font-semibold">분석 파라미터</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<!-- Tab 1: Product Type (Active) -->
+<button class="bg-secondary-container text-on-secondary-container font-bold rounded-lg scale-95 transition-transform flex items-center gap-3 w-full p-3 text-left">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                    제품 유형
+                </button>
+<!-- Tab 2: Defect Type -->
+<button class="text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center gap-3 w-full p-3 text-left rounded-lg">
+<span class="material-symbols-outlined">error</span>
+                    불량 유형
+                </button>
+<!-- Tab 3: Grade -->
+<button class="text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center gap-3 w-full p-3 text-left rounded-lg">
+<span class="material-symbols-outlined">grade</span>
+                    등급
+                </button>
+<!-- Tab 4: Period -->
+<button class="text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors flex items-center gap-3 w-full p-3 text-left rounded-lg">
+<span class="material-symbols-outlined">calendar_today</span>
+                    기간
+                </button>
+</nav>
+<button class="w-full bg-surface-container-high text-on-surface hover:bg-surface-variant border border-border-neutral font-body-md text-body-md py-2 rounded transition-colors mt-auto font-semibold">
+                필터 적용
+            </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col overflow-y-auto p-margin-page gap-6 bg-background">
+<!-- Header Section -->
+<header class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-text-heading mb-unit">데이터 선택</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">분석할 생산 데이터를 업로드하고 분석 대상 LOT를 선택하세요.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-high rounded text-on-surface-variant font-body-md text-body-md border border-border-neutral mr-2">
+<span class="w-2 h-2 rounded-full bg-status-normal"></span>
+                        기본 샘플 데이터 사용 중
+                    </div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface text-primary border border-primary rounded font-body-md text-body-md hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+                        CSV 업로드
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface text-error border border-border-neutral rounded font-body-md text-body-md hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+                        샘플 데이터 복원
+                    </button>
+</div>
+</header>
+<!-- Summary Stats (KPI Cards) -->
+<section class="grid grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest border border-border-neutral rounded-lg p-card-padding flex flex-col shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">전체 LOT</span>
+<span class="font-headline-md text-headline-md text-text-heading font-bold">25</span>
+</div>
+<div class="bg-surface-container-lowest border border-border-neutral rounded-lg p-card-padding flex flex-col shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">총 생산량</span>
+<span class="font-headline-md text-headline-md text-text-heading font-bold flex items-end gap-1">
+                        12,000 <span class="font-body-md text-body-md text-on-surface-variant mb-0.5">kg</span>
+</span>
+</div>
+<div class="bg-surface-container-lowest border border-border-neutral rounded-lg p-card-padding flex flex-col shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">총 불량 수량</span>
+<span class="font-headline-md text-headline-md text-text-heading font-bold">420</span>
+</div>
+<div class="bg-surface-container-lowest border border-border-neutral rounded-lg p-card-padding flex flex-col shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1 h-full bg-status-caution"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">평균 불량률</span>
+<span class="font-headline-md text-headline-md text-status-caution font-bold">3.5%</span>
+</div>
+</section>
+<!-- Main Data Grid Area -->
+<section class="grid grid-cols-12 gap-gutter flex-grow min-h-[500px]">
+<!-- LOT Selection List (Col 3) -->
+<div class="col-span-3 bg-surface-container-lowest border border-border-neutral rounded-lg flex flex-col overflow-hidden shadow-sm">
+<div class="p-3 border-b border-border-neutral bg-surface-container flex justify-between items-center">
+<span class="font-body-md text-body-md font-semibold text-text-heading">LOT 선택</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded">25 항목</span>
+</div>
+<div class="p-3 border-b border-border-neutral">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline-variant text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface text-on-surface font-body-md text-body-md border border-border-neutral rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-outline-variant transition-all" placeholder="LOT 검색..." type="text"/>
+</div>
+</div>
+<div class="flex-grow overflow-y-auto p-2 flex flex-col gap-0.5">
+<!-- Checked state -->
+<label class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low cursor-pointer bg-primary-fixed bg-opacity-30">
+<input checked="" class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-on-surface">LOT-202310-001</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low cursor-pointer bg-primary-fixed bg-opacity-30">
+<input checked="" class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-on-surface">LOT-202310-002</span>
+</label>
+<!-- Unchecked states -->
+<label class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low cursor-pointer">
+<input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-on-surface">LOT-202310-003</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low cursor-pointer">
+<input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-on-surface">LOT-202310-004</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded hover:bg-surface-container-low cursor-pointer">
+<input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-0 bg-surface" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-on-surface">LOT-202310-005</span>
+</label>
+</div>
+</div>
+<!-- Data Preview Table (Col 9) -->
+<div class="col-span-9 bg-surface-container-lowest border border-border-neutral rounded-lg flex flex-col overflow-hidden shadow-sm">
+<div class="p-3 border-b border-border-neutral bg-surface flex justify-between items-center">
+<span class="font-body-md text-body-md font-semibold text-text-heading">데이터 미리보기</span>
+<div class="flex gap-2">
+<button class="p-1 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors" title="선택 항목 내보내기">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors" title="테이블 설정">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<div class="flex-grow overflow-auto bg-surface-container-lowest">
+<table class="w-full text-left border-collapse whitespace-nowrap">
+<thead class="bg-surface-container-high sticky top-0 z-10 border-b border-border-neutral">
+<tr>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">로트 번호</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">날짜</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">제품</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">불량 유형</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">불량 수량</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">총 수량</th>
+<th class="py-2 px-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">불량률</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface">
+<!-- Standard Row -->
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-table-cell-padding font-medium">LOT-202310-001</td>
+<td class="py-3 px-table-cell-padding text-on-surface-variant">2023-10-01</td>
+<td class="py-3 px-table-cell-padding">NCMA 811</td>
+<td class="py-3 px-table-cell-padding">Particle Size</td>
+<td class="py-3 px-table-cell-padding text-right">15</td>
+<td class="py-3 px-table-cell-padding text-right">500</td>
+<td class="py-3 px-table-cell-padding text-right">3.0%</td>
+</tr>
+<!-- Critical Row Example (4px left border) -->
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors relative">
+<td class="absolute left-0 top-0 bottom-0 w-1 bg-status-critical"></td>
+<td class="py-3 px-table-cell-padding font-medium pl-[15px]">LOT-202310-002</td>
+<td class="py-3 px-table-cell-padding text-on-surface-variant">2023-10-01</td>
+<td class="py-3 px-table-cell-padding">NCMA 811</td>
+<td class="py-3 px-table-cell-padding">Moisture</td>
+<td class="py-3 px-table-cell-padding text-right">42</td>
+<td class="py-3 px-table-cell-padding text-right">500</td>
+<td class="py-3 px-table-cell-padding text-right font-bold text-status-critical">8.4%</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors text-outline">
+<td class="py-3 px-table-cell-padding font-medium">LOT-202310-003</td>
+<td class="py-3 px-table-cell-padding">2023-10-02</td>
+<td class="py-3 px-table-cell-padding">NCA</td>
+<td class="py-3 px-table-cell-padding">None</td>
+<td class="py-3 px-table-cell-padding text-right">0</td>
+<td class="py-3 px-table-cell-padding text-right">480</td>
+<td class="py-3 px-table-cell-padding text-right">0.0%</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-table-cell-padding font-medium">LOT-202310-004</td>
+<td class="py-3 px-table-cell-padding text-on-surface-variant">2023-10-02</td>
+<td class="py-3 px-table-cell-padding">NCMA 811</td>
+<td class="py-3 px-table-cell-padding">Foreign Matter</td>
+<td class="py-3 px-table-cell-padding text-right">12</td>
+<td class="py-3 px-table-cell-padding text-right">520</td>
+<td class="py-3 px-table-cell-padding text-right">2.3%</td>
+</tr>
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-table-cell-padding font-medium">LOT-202310-005</td>
+<td class="py-3 px-table-cell-padding text-on-surface-variant">2023-10-03</td>
+<td class="py-3 px-table-cell-padding">LFP</td>
+<td class="py-3 px-table-cell-padding">Density</td>
+<td class="py-3 px-table-cell-padding text-right">18</td>
+<td class="py-3 px-table-cell-padding text-right">600</td>
+<td class="py-3 px-table-cell-padding text-right">3.0%</td>
+</tr>
+<!-- Padding rows to fill space visually -->
+<tr class="border-b border-surface-container hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-table-cell-padding font-medium">LOT-202310-006</td>
+<td class="py-3 px-table-cell-padding text-on-surface-variant">2023-10-03</td>
+<td class="py-3 px-table-cell-padding">NCMA 811</td>
+<td class="py-3 px-table-cell-padding">Moisture</td>
+<td class="py-3 px-table-cell-padding text-right">5</td>
+<td class="py-3 px-table-cell-padding text-right">500</td>
+<td class="py-3 px-table-cell-padding text-right">1.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2 border-t border-border-neutral bg-surface-container-lowest text-right">
+<span class="font-body-md text-body-md text-on-surface-variant">25개 중 6개 레코드 표시</span>
+</div>
+</div>
+</section>
+<!-- Bottom Action Footer -->
+<footer class="flex justify-end pt-4 mt-auto border-t border-border-neutral">
+<button class="bg-primary text-on-primary font-body-md text-body-md px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-surface-tint hover:shadow-md transition-all font-semibold group">
+                    선택 LOT 분석하기
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quality Insight · 대시보드</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dashboard-page">
+  <header class="topbar">
+    <div class="brand-lockup"><span class="brand-mark">PF</span><span>QUALITY INSIGHT</span></div>
+    <div class="session"><span id="user-email"></span><button id="sign-out" class="button ghost">로그아웃</button></div>
+  </header>
+  <main class="dashboard-shell">
+    <div class="dashboard-heading"><div><span class="eyebrow">PROTECTED WORKSPACE</span><h1>생산 품질 대시보드</h1><p class="muted">인증된 사용자만 접근할 수 있는 품질 분석 공간입니다.</p></div><span class="status-pill"><i></i> SECURE SESSION</span></div>
+    <section class="metrics">
+      <article><span class="eyebrow">ACTIVE LOTS</span><strong>25</strong><small>+4.8% this month</small></article>
+      <article><span class="eyebrow">TOTAL OUTPUT</span><strong>12,000 <small>kg</small></strong><small>Within target range</small></article>
+      <article><span class="eyebrow">DEFECT RATE</span><strong>3.5<small>%</small></strong><small class="warning">Requires attention</small></article>
+    </section>
+    <section class="workspace-grid">
+      <article class="panel signal-panel"><div class="panel-heading"><div><span class="eyebrow">RISK SIGNALS</span><h2>최근 품질 신호</h2></div><span class="panel-count">03</span></div><div class="signal critical"><span class="signal-dot"></span><div><strong>LOT-202310-002</strong><p>Moisture · 8.4% defect rate</p></div><span class="tag critical-tag">CRITICAL</span></div><div class="signal caution"><span class="signal-dot"></span><div><strong>LOT-202310-004</strong><p>Foreign Matter · 2.3% defect rate</p></div><span class="tag caution-tag">WATCH</span></div><div class="signal normal"><span class="signal-dot"></span><div><strong>LOT-202310-005</strong><p>Density · 3.0% defect rate</p></div><span class="tag normal-tag">STABLE</span></div></article>
+      <article class="panel chart-panel"><div class="panel-heading"><div><span class="eyebrow">DEFECT TREND</span><h2>주간 불량률 추이</h2></div><span class="muted">Last 7 days</span></div><div class="chart"><span class="line line-one"></span><span class="line line-two"></span><div class="chart-labels"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div></div></article>
+    </section>
+    <footer class="protected-footer"><span>Protected by Supabase Auth</span><a href="auth.html">계정 전환</a></footer>
+  </main>
+  <script src="config.js"></script>
+  <script type="module" src="src/protected.js"></script>
+</body>
+</html>
